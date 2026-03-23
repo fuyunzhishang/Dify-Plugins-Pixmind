@@ -1,16 +1,24 @@
 # Dify Plugins
 
+[中文](#中文) | [English](#English)
+
+---
+
+## 中文
+
+### 简介
+
 Dify 插件开发仓库。
 
-## 插件列表
+### 插件列表
 
 | 插件 | 版本 | 说明 |
 |------|------|------|
 | [pixmind](./pixmind/) | 0.0.19 | AI 图片/视频生成平台插件 |
 
-## 开发
+### 开发
 
-### 构建
+#### 构建
 
 ```bash
 # 构建指定插件（自动从 manifest.yaml 读取版本号）
@@ -20,11 +28,11 @@ Dify 插件开发仓库。
 ./scripts/build.sh pixmind 0.0.19
 ```
 
-### 安装
+#### 安装
 
 在 Dify 控制台 → 插件管理 → 上传 `.difypkg` 文件。
 
-### 目录结构
+#### 目录结构
 
 ```
 pixmind/
@@ -38,5 +46,52 @@ pixmind/
 ├── manifest.yaml           # 插件元信息
 ├── main.py                 # 入口
 ├── requirements.txt        # Python 依赖
+└── README.md
+```
+
+---
+
+## English
+
+### About
+
+Dify plugin development repository.
+
+### Plugins
+
+| Plugin | Version | Description |
+|--------|---------|-------------|
+| [pixmind](./pixmind/) | 0.0.19 | AI image/video generation platform plugin |
+
+### Development
+
+#### Build
+
+```bash
+# Build a specific plugin (reads version from manifest.yaml automatically)
+./scripts/build.sh pixmind
+
+# Specify a version
+./scripts/build.sh pixmind 0.0.19
+```
+
+#### Installation
+
+Upload the `.difypkg` file in Dify Console → Plugin Management.
+
+#### Directory Structure
+
+```
+pixmind/
+├── _assets/icon.svg        # Plugin icon
+├── provider/               # Credential config + Provider logic
+│   ├── pixmind.yaml        # Credential definitions
+│   └── pixmind.py          # Provider implementation
+├── tools/                  # Tool definitions
+│   ├── image_generate.*    # Image generation
+│   └── video_generate.*    # Video generation
+├── manifest.yaml           # Plugin metadata
+├── main.py                 # Entry point
+├── requirements.txt        # Python dependencies
 └── README.md
 ```
