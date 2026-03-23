@@ -1,0 +1,199 @@
+description:
+  human:
+    en_US: Generate videos using Pixmind AI video generation API. Returns the video with a cover image.
+    zh_Hans: 使用 Pixmind AI 视频生成 API 生成视频。返回封面图和视频播放器。
+  llm: Generate videos using Pixmind AI. Input a text prompt describing the video you want to generate. Returns an HTML video player for display in chat.
+extra:
+  python:
+    source: tools/video_generate.py
+identity:
+  author: pixmind
+  name: video_generate
+  label:
+    en_US: Video Generate
+    zh_Hans: 视频生成
+parameters:
+  - name: prompt
+    type: string
+    required: true
+    label:
+      en_US: Prompt
+      zh_Hans: 提示词
+    human_description:
+      en_US: Text description of the video to generate
+      zh_Hans: 要生成的视频的文字描述
+    llm_description: The text prompt describing the video you want to generate. Be as detailed as possible for better results.
+    form: llm
+  - name: model
+    type: select
+    required: false
+    default: seedance-1.5-pro
+    label:
+      en_US: Model
+      zh_Hans: 模型
+    human_description:
+      en_US: The model to use for video generation
+      zh_Hans: 用于视频生成的模型
+    llm_description: The model to use for video generation. Default is seedance-1.5-pro.
+    options:
+      - value: sora-2
+        label:
+          en_US: Sora 2
+          zh_Hans: Sora 2
+      - value: sora-2-pro
+        label:
+          en_US: Sora 2 Pro
+          zh_Hans: Sora 2 Pro
+      - value: veo-3.1
+        label:
+          en_US: Veo 3.1
+          zh_Hans: Veo 3.1
+      - value: veo-3.1-fast
+        label:
+          en_US: Veo 3.1 Fast
+          zh_Hans: Veo 3.1 Fast
+      - value: veo-3.0
+        label:
+          en_US: Veo 3.0
+          zh_Hans: Veo 3.0
+      - value: veo-3.1-eco
+        label:
+          en_US: Veo 3.1 Eco
+          zh_Hans: Veo 3.1 Eco
+      - value: seedance-1.5-pro
+        label:
+          en_US: Seedance 1.5 Pro
+          zh_Hans: Seedance 1.5 Pro
+      - value: doubao-seedance-pro
+        label:
+          en_US: Seedance 1.0 Pro
+          zh_Hans: Seedance 1.0 Pro
+      - value: doubao-seedance-1.0-pro-fast
+        label:
+          en_US: Seedance 1.0 Pro Fast
+          zh_Hans: Seedance 1.0 Pro Fast
+      - value: pixverse-v5
+        label:
+          en_US: PixVerse V5
+          zh_Hans: PixVerse V5
+      - value: pixverse-v5-fast
+        label:
+          en_US: PixVerse V5 Fast
+          zh_Hans: PixVerse V5 Fast
+      - value: wan2.6-t2v
+        label:
+          en_US: Wan 2.6 T2V
+          zh_Hans: Wan 2.6 T2V
+      - value: wan2.6-i2v
+        label:
+          en_US: Wan 2.6 I2V
+          zh_Hans: Wan 2.6 I2V
+    form: form
+  - name: duration
+    type: number
+    required: false
+    default: 5
+    min: 2
+    max: 10
+    label:
+      en_US: Duration (seconds)
+      zh_Hans: 时长（秒）
+    human_description:
+      en_US: Video duration in seconds
+      zh_Hans: 视频时长（秒）
+    llm_description: Video duration in seconds. Default is 5.
+    form: form
+  - name: aspect_ratio
+    type: select
+    required: false
+    default: "16:9"
+    label:
+      en_US: Aspect Ratio
+      zh_Hans: 宽高比
+    human_description:
+      en_US: Aspect ratio of the generated video
+      zh_Hans: 生成视频的宽高比
+    llm_description: The aspect ratio of the generated video. Default is 16:9.
+    options:
+      - value: "16:9"
+        label:
+          en_US: "16:9"
+          zh_Hans: "16:9"
+      - value: "9:16"
+        label:
+          en_US: "9:16"
+          zh_Hans: "9:16"
+      - value: "1:1"
+        label:
+          en_US: "1:1"
+          zh_Hans: "1:1"
+      - value: "4:3"
+        label:
+          en_US: "4:3"
+          zh_Hans: "4:3"
+      - value: "3:4"
+        label:
+          en_US: "3:4"
+          zh_Hans: "3:4"
+    form: form
+  - name: resolution
+    type: select
+    required: false
+    default: "1080p"
+    label:
+      en_US: Resolution
+      zh_Hans: 分辨率
+    human_description:
+      en_US: Video resolution
+      zh_Hans: 视频分辨率
+    llm_description: The resolution of the generated video. Default is 1080p.
+    options:
+      - value: "480p"
+        label:
+          en_US: "480p"
+          zh_Hans: "480p"
+      - value: "720p"
+        label:
+          en_US: "720p"
+          zh_Hans: "720p"
+      - value: "1080p"
+        label:
+          en_US: "1080p"
+          zh_Hans: "1080p"
+      - value: "2K"
+        label:
+          en_US: "2K"
+          zh_Hans: "2K"
+      - value: "4K"
+        label:
+          en_US: "4K"
+          zh_Hans: "4K"
+    form: form
+  - name: timeout
+    type: number
+    required: false
+    default: 600
+    min: 60
+    max: 1200
+    label:
+      en_US: Timeout
+      zh_Hans: 超时时间
+    human_description:
+      en_US: Maximum time in seconds to wait for video generation
+      zh_Hans: 等待视频生成的最长时间（秒）
+    llm_description: Maximum time in seconds to wait. Video generation is slow, default is 600s (10 min).
+    form: form
+  - name: poll_interval
+    type: number
+    required: false
+    default: 5
+    min: 2
+    max: 30
+    label:
+      en_US: Poll Interval
+      zh_Hans: 轮询间隔
+    human_description:
+      en_US: Interval in seconds between polling requests
+      zh_Hans: 轮询请求之间的间隔（秒）
+    llm_description: Interval in seconds between status checks. Default is 5 seconds.
+    form: form

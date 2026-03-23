@@ -1,0 +1,45 @@
+identity:
+  author: pixmind
+  name: pixmind
+  label:
+    en_US: Pixmind
+    zh_Hans: Pixmind
+  description:
+    en_US: Generate images using Pixmind AI with automatic task polling
+    zh_Hans: 使用 Pixmind AI 生成图片，支持自动轮询任务状态
+  icon: icon.svg
+  tags:
+    - image
+    - productivity
+credentials_for_provider:
+  api_key:
+    help:
+      en_US: Get your API key from Pixmind (https://www.pixmind.io)
+      zh_Hans: 从 Pixmind 获取您的 API 密钥 (https://www.pixmind.io)
+    label:
+      en_US: API Key
+      zh_Hans: API 密钥
+    placeholder:
+      en_US: Please input your API key (X-API-KEY header)
+      zh_Hans: 请输入您的 API 密钥（X-API-KEY 请求头）
+    required: true
+    type: secret-input
+  base_url:
+    default: https://aihub-admin.aimix.pro/open-api/v1
+    help:
+      en_US: Pixmind API base URL
+      zh_Hans: Pixmind API 基础地址
+    label:
+      en_US: Base URL
+      zh_Hans: 基础地址
+    placeholder:
+      en_US: https://aihub-admin.aimix.pro/open-api/v1
+      zh_Hans: https://aihub-admin.aimix.pro/open-api/v1
+    required: false
+    type: text-input
+tools:
+  - tools/image_generate.yaml
+  - tools/video_generate.yaml
+extra:
+  python:
+    source: provider/pixmind.py
