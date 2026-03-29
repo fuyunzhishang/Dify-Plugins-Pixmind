@@ -27,6 +27,10 @@ meta:
     language: python
     version: "3.12"
     entrypoint: main
+privacy_policy: PRIVACY.md
+privacy_policy_type: file
+email: support@pixmind.io
+homepage: https://www.pixmind.io
 tags:
   - image
   - productivity

@@ -24,6 +24,17 @@ parameters:
       zh_Hans: 要生成的视频的文字描述
     llm_description: The text prompt describing the video you want to generate. Be as detailed as possible for better results.
     form: llm
+  - name: image_url
+    type: string
+    required: false
+    label:
+      en_US: Reference Image URL
+      zh_Hans: 参考图片地址
+    human_description:
+      en_US: Reference image URL for image-to-video generation (required for I2V models like wan2.6-i2v)
+      zh_Hans: 图生视频的参考图片地址（wan2.6-i2v 等 I2V 模型需要提供）
+    llm_description: Optional reference image URL for image-to-video generation. When provided, the model will generate a video based on this reference image. Required for I2V (image-to-video) models.
+    form: llm
   - name: model
     type: select
     required: false

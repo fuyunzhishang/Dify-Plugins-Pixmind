@@ -42,79 +42,79 @@ parameters:
           zh_Hans: Pixmind
       - value: nano-banana-pro
         label:
-          en_US: Nano Banana Pro (文生图/图生图)
+          en_US: Nano Banana Pro (Text-to-Image / Image-to-Image)
           zh_Hans: Nano Banana Pro (文生图/图生图)
       - value: nano-banana-pro-lite
         label:
-          en_US: Nano Banana Pro Eco (文生图/图生图)
+          en_US: Nano Banana Pro Eco (Text-to-Image / Image-to-Image)
           zh_Hans: Nano Banana Pro Eco (文生图/图生图)
       - value: nano-banana-2
         label:
-          en_US: Nano Banana 2 (文生图/图生图)
+          en_US: Nano Banana 2 (Text-to-Image / Image-to-Image)
           zh_Hans: Nano Banana 2 (文生图/图生图)
       - value: nano-banana-2-eco
         label:
-          en_US: Nano Banana 2 Eco (文生图/图生图)
+          en_US: Nano Banana 2 Eco (Text-to-Image / Image-to-Image)
           zh_Hans: Nano Banana 2 Eco (文生图/图生图)
       - value: nano-banana
         label:
-          en_US: Nano Banana (文生图/图生图)
+          en_US: Nano Banana (Text-to-Image / Image-to-Image)
           zh_Hans: Nano Banana (文生图/图生图)
       - value: seedream-5.0
         label:
-          en_US: Seedream 5.0 (文生图/图生图)
+          en_US: Seedream 5.0 (Text-to-Image / Image-to-Image)
           zh_Hans: Seedream 5.0 (文生图/图生图)
       - value: seedream-4.5
         label:
-          en_US: Seedream 4.5 (文生图/图生图)
+          en_US: Seedream 4.5 (Text-to-Image / Image-to-Image)
           zh_Hans: Seedream 4.5 (文生图/图生图)
       - value: seedream-4.0
         label:
-          en_US: Seedream 4.0 (文生图/图生图)
+          en_US: Seedream 4.0 (Text-to-Image / Image-to-Image)
           zh_Hans: Seedream 4.0 (文生图/图生图)
       - value: gpt-image-4o
         label:
-          en_US: GPT Image 4o (文生图/图生图)
+          en_US: GPT Image 4o (Text-to-Image / Image-to-Image)
           zh_Hans: GPT Image 4o (文生图/图生图)
       - value: gpt-image-1.5
         label:
-          en_US: GPT Image 1.5 (文生图/图生图)
+          en_US: GPT Image 1.5 (Text-to-Image / Image-to-Image)
           zh_Hans: GPT Image 1.5 (文生图/图生图)
       - value: mj-v7
         label:
-          en_US: Midjourney V7 (文生图/图生图)
+          en_US: Midjourney V7 (Text-to-Image / Image-to-Image)
           zh_Hans: Midjourney V7 (文生图/图生图)
       - value: mj-v6.1
         label:
-          en_US: Midjourney V6.1 (文生图/图生图)
+          en_US: Midjourney V6.1 (Text-to-Image / Image-to-Image)
           zh_Hans: Midjourney V6.1 (文生图/图生图)
       - value: mj-niji6
         label:
-          en_US: Midjourney Niji 6 (文生图/图生图)
+          en_US: Midjourney Niji 6 (Text-to-Image / Image-to-Image)
           zh_Hans: Midjourney Niji 6 (文生图/图生图)
       - value: imagen-4-standard
         label:
-          en_US: Imagen 4 Standard (文生图)
+          en_US: Imagen 4 Standard (Text-to-Image)
           zh_Hans: Imagen 4 Standard (文生图)
       - value: wan2.6-image
         label:
-          en_US: Wan 2.6 Image (文生图/图生图)
+          en_US: Wan 2.6 Image (Text-to-Image / Image-to-Image)
           zh_Hans: Wan 2.6 Image (文生图/图生图)
       - value: qwen-image-max
         label:
-          en_US: Qwen Image Max (文生图)
+          en_US: Qwen Image Max (Text-to-Image)
           zh_Hans: Qwen Image Max (文生图)
       - value: qwen-image-plus
         label:
-          en_US: Qwen Image Plus (文生图)
+          en_US: Qwen Image Plus (Text-to-Image)
           zh_Hans: Qwen Image Plus (文生图)
       - value: qwen-image-edit-max
         label:
-          en_US: Qwen Image Edit Max (图生图)
+          en_US: Qwen Image Edit Max (Image-to-Image)
           zh_Hans: Qwen Image Edit Max (图生图)
       - value: qwen-image-edit-plus
         label:
-          en_US: Qwen Image Edit Plus (图生图)
+          en_US: Qwen Image Edit Plus (Image-to-Image)
           zh_Hans: Qwen Image Edit Plus (图生图)
     form: form
   - name: image_url

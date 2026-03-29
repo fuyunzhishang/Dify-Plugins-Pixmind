@@ -26,6 +26,7 @@ class VideoGenerateTool(Tool):
 
         prompt = tool_parameters.get("prompt", "")
         model = tool_parameters.get("model", "seedance-1.5-pro")
+        image_url = tool_parameters.get("image_url", "")
         duration = tool_parameters.get("duration", 5)
         aspect_ratio = tool_parameters.get("aspect_ratio", "16:9")
         resolution = tool_parameters.get("resolution", "1080p")
@@ -47,6 +48,10 @@ class VideoGenerateTool(Tool):
             "aspectRatio": aspect_ratio,
             "resolution": resolution,
         }
+
+        # Add image URL for image-to-video generation
+        if image_url:
+            payload["imageUrl"] = image_url
 
         response = requests.post(
             url=generate_url,
@@ -131,6 +136,14 @@ class VideoGenerateTool(Tool):
                 human_description="Text description of the video to generate",
                 type=ToolParameter.ToolParameterType.STRING,
                 required=True,
+                form=ToolParameter.ToolParameterForm.LLM,
+            ),
+            ToolParameter(
+                name="image_url",
+                label="Image URL",
+                human_description="Reference image URL for image-to-video generation (required for I2V models)",
+                type=ToolParameter.ToolParameterType.STRING,
+                required=False,
                 form=ToolParameter.ToolParameterForm.LLM,
             ),
             ToolParameter(

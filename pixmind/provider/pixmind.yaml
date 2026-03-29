@@ -24,6 +24,7 @@ credentials_for_provider:
       zh_Hans: 请输入您的 API 密钥（X-API-KEY 请求头）
     required: true
     type: secret-input
+    url: https://www.pixmind.io
   base_url:
     default: https://aihub-admin.aimix.pro/open-api/v1
     help:
