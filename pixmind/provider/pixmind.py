@@ -19,18 +19,27 @@ class PixmindProvider(ToolProvider):
             ToolProviderCredentialValidationError: If credentials are invalid.
         """
         try:
-            # Inject app_key into credentials for validation
-            cred_with_app = {**cred, "app_key": APP_KEY}
-            # Try to invoke the image generate tool with a simple test
-            for _ in ImageGenerateTool.from_credentials(credentials=cred_with_app).invoke(
-                tool_parameters={
-                    "prompt": "test",
-                    "model": "nano-banana-2-eco",
-                    "aspect_ratio": "1:1",
-                    "timeout": 10,
-                    "poll_interval": 2,
-                },
-            ):
-                pass
+            # Validate credentials by making a test request to the API
+            import requests
+
+            api_key = cred.get("api_key")
+            base_url = cred.get("base_url") or "https://aihub-admin.aimix.pro/open-api/v1"
+
+            headers = {
+                "X-API-KEY": api_key,
+                "appKey": APP_KEY,
+                "Content-Type": "application/json",
+            }
+            response = requests.post(
+                url=f"{base_url}/image/generate",
+                headers=headers,
+                json={"prompt": "test", "model": "nano-banana-2-eco", "aspectRatio": "1:1"},
+                timeout=10,
+            )
+            result = response.json()
+            if result.get("code") == 401:
+                raise ToolProviderCredentialValidationError("Invalid API key")
+        except ToolProviderCredentialValidationError:
+            raise
         except Exception as e:
             raise ToolProviderCredentialValidationError(str(e))

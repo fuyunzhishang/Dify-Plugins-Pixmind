@@ -12,6 +12,12 @@ identity:
   label:
     en_US: Image Generate
     zh_Hans: 图片生成
+output_schema:
+  type: object
+  properties:
+    image_url:
+      type: string
+      description: "The public URL of the generated image, can be used as reference image for video generation"
 parameters:
   - name: prompt
     type: string

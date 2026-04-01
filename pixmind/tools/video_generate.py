@@ -108,11 +108,21 @@ class VideoGenerateTool(Tool):
 
                 if video_url:
                     video_url = "".join(video_url.split())
-                    yield self.create_text_message(
-                        f"![cover]({cover_url})\n\n"
-                        f'<video controls playsinline width="100%" max-width="640">'
-                        f'<source src="{video_url}" type="video/mp4"></video>'
-                    )
+                    yield self.create_text_message(f"![video]({video_url})")
+                    # Download video and output as blob for inline preview
+                    try:
+                        video_resp = requests.get(video_url, headers=headers, timeout=120)
+                        video_resp.raise_for_status()
+                        yield self.create_blob_message(
+                            video_resp.content,
+                            meta={
+                                "mime_type": "video/mp4",
+                                "filename": f"pixmind-video-{task_id}.mp4",
+                            },
+                        )
+                    except Exception:
+                        # Fallback to link if download fails
+                        yield self.create_link_message(video_url)
                 else:
                     yield self.create_text_message(
                         f"Video generated (taskId: {task_id}) but no URL returned. "

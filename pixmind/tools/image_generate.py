@@ -119,22 +119,21 @@ class ImageGenerateTool(Tool):
                 images = task_data.get("images", [])
                 if images:
                     # Clean up URL - remove newlines and extra whitespace
-                    image_url = "".join(images[0].split())
+                    result_url = "".join(images[0].split())
 
                     blob_message = self._create_image_blob_message(
-                        image_url=image_url,
+                        image_url=result_url,
                         headers=headers,
                         task_id=task_id,
                     )
 
                     if blob_message:
                         yield blob_message
-                        # Also yield the URL as Markdown so it renders as an image
-                        yield self.create_text_message(f"![image]({image_url})")
                     else:
-                        # Fallback to a direct image URL when download fails
-                        yield self.create_image_message(image_url)
-                        yield self.create_text_message(f"![image]({image_url})")
+                        yield self.create_image_message(result_url)
+
+                    yield self.create_text_message(f"![image]({result_url})")
+                    yield self.create_variable_message("image_url", result_url)
                 else:
                     yield self.create_text_message("Error: Task completed but no images found")
                 return

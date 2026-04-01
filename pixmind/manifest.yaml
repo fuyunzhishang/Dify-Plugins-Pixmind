@@ -1,4 +1,4 @@
-version: 0.0.20
+version: 0.0.22
 type: plugin
 author: pixmind
 name: pixmind
@@ -19,7 +19,7 @@ plugins:
   tools:
     - provider/pixmind.yaml
 meta:
-  version: 0.0.20
+  version: 0.0.22
   arch:
     - amd64
     - arm64
