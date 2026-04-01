@@ -1,4 +1,4 @@
-version: 0.0.22
+version: 0.0.23
 type: plugin
 author: pixmind
 name: pixmind
@@ -8,8 +8,8 @@ label:
 created_at: "2026-03-20T00:00:00.000000000Z"
 icon: icon.svg
 description:
-  en_US: Generate images using Pixmind AI with multiple models, aspect ratios, and automatic task polling
-  zh_Hans: 使用 Pixmind AI 生成图片，支持多种模型、画面比例和自动轮询任务状态
+  en_US: Generate images and videos using Pixmind AI with multiple models, aspect ratios, and automatic task polling
+  zh_Hans: 使用 Pixmind AI 生成图片和视频，支持多种模型、画面比例和自动轮询任务状态
 resource:
   memory: 1048576
   permission:
@@ -19,7 +19,7 @@ plugins:
   tools:
     - provider/pixmind.yaml
 meta:
-  version: 0.0.22
+  version: 0.0.23
   arch:
     - amd64
     - arm64
@@ -33,4 +33,5 @@ email: support@pixmind.io
 homepage: https://www.pixmind.io
 tags:
   - image
+  - video
   - productivity

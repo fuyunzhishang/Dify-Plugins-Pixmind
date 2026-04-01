@@ -5,11 +5,12 @@ identity:
     en_US: Pixmind
     zh_Hans: Pixmind
   description:
-    en_US: Generate images using Pixmind AI with automatic task polling
-    zh_Hans: 使用 Pixmind AI 生成图片，支持自动轮询任务状态
+    en_US: Generate images and videos using Pixmind AI with automatic task polling
+    zh_Hans: 使用 Pixmind AI 生成图片和视频，支持自动轮询任务状态
   icon: icon.svg
   tags:
     - image
+    - video
     - productivity
 credentials_for_provider:
   api_key:
